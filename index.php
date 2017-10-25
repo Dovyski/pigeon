@@ -1,14 +1,15 @@
 <?php
 
+define('PIGEON_VERSION', '1.0.0');
+
 @include(dirname(__FILE__) . '/config.local.php');
 @include(dirname(__FILE__) . '/config.php');
-include(dirname(__FILE__) . '/inc/functions.php');
-
+include_once(dirname(__FILE__) . '/inc/functions.php');
 @include_once(dirname(__FILE__) . '/vendor/autoload.php');
 
 $aMethod   = isset($_REQUEST['method']) ? $_REQUEST['method'] : '';
 $aToken    = isset($_REQUEST['token'])  ? $_REQUEST['token']  : '';
-$aReturn   = array('success' => true, 'method' => $aMethod, 'timestamp' => time());
+$aReturn   = array('success' => true, 'method' => $aMethod, 'timestamp' => time(), 'version' => PIGEON_VERSION);
 
 try {
 	if(!isUsingValidCredentials($aToken)) {
@@ -34,6 +35,10 @@ try {
 
 			if(USE_CUSTOM_SMTP) {
 				sendUsingSMTP($aTo, $aSubject, $aText);
+			}
+
+			if(USE_MAIL_FUNCTION) {
+				sendUsingMailFunction($aTo, $aSubject, $aText);
 			}
 			break;
 

@@ -2,8 +2,8 @@
 
 define('DEBUG', false);
 
-define('USE_CUSTOM_SMTP', true);
-define('USE_MAIL_FUNCTION', false);
+define('USE_CUSTOM_SMTP', false);
+define('USE_MAIL_FUNCTION', true);
 
 define('AUTH_TOKEN', '');
 

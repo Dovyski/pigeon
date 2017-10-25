@@ -34,7 +34,13 @@ function sendUsingSMTP($theTo, $theSubject, $theText) {
 }
 
 function sendUsingMailFunction($theTo, $theSubject, $theText) {
-	// TODO: implement this
+	$aHeaders[] = 'From: ' . SENDER_NAME . ' <' . SENDER_EMAIL . '>';
+    $aHeaders[] = 'Reply-To: ' . SENDER_EMAIL;
+    $aHeaders[] = 'X-Mailer: Pigeon/'.PIGEON_VERSION.' PHP/' . phpversion();
+
+	if(!@mail($theTo, $theSubject, $theText, implode("\r\n", $aHeaders))) {
+		throw new \Exception('Unable to send e-mail.');
+	}
 }
 
 function isUsingValidCredentials($theToken) {
