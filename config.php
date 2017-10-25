@@ -5,8 +5,7 @@ define('DEBUG', false);
 define('USE_CUSTOM_SMTP', true);
 define('USE_MAIL_FUNCTION', false);
 
-define('AUTH_USER', '');
-define('AUTH_PASSWORD', '');
+define('AUTH_TOKEN', '');
 
 define('SMTP_HOST', 'smtp.gmail.com');
 define('SMTP_USER', '');

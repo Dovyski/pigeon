@@ -33,9 +33,15 @@ function sendUsingMailFunction($theTo, $theSubject, $theText) {
 	// TODO: implement this
 }
 
-function isUsingValidCredentials($theUser, $thePassword) {
-	// TODO: implement this
-	return true;
+function isUsingValidCredentials($theToken) {
+	if(empty(AUTH_TOKEN)) {
+		// No config token specified for authentication. We assume no auth mechanism is
+		// in place, so all credentials are valid
+		return true;
+	}
+
+	$aWrongToken = $theToken != AUTH_TOKEN;
+	return !$aWrongToken;
 }
 
 ?>

@@ -6,9 +6,8 @@ include(dirname(__FILE__) . '/inc/functions.php');
 
 @include_once(dirname(__FILE__) . '/vendor/autoload.php');
 
-$aMethod   = isset($_REQUEST['method'])   ? $_REQUEST['method']   : '';
-$aUser     = isset($_REQUEST['user'])     ? $_REQUEST['user']     : '';
-$aPassword = isset($_REQUEST['password']) ? $_REQUEST['password'] : '';
+$aMethod   = isset($_REQUEST['method']) ? $_REQUEST['method'] : '';
+$aToken    = isset($_REQUEST['token'])  ? $_REQUEST['token']  : '';
 $aReturn   = array('success' => true, 'method' => $aMethod, 'timestamp' => time());
 
 try {
@@ -16,8 +15,8 @@ try {
 	    throw new \Exception('Delivery infra-structure is not ready (PHPMailer not installed). Run "composer install" in the root folder.');
 	}
 
-	if(!isUsingValidCredentials($aUser, $aPassword)) {
-		throw new \Exception('Invalid auth credentials.');
+	if(!isUsingValidCredentials($aToken)) {
+		throw new \Exception('Invalid auth token.');
 	}
 
 	switch ($aMethod) {
