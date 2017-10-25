@@ -7,7 +7,7 @@ define('PIGEON_VERSION', '1.0.0');
 include_once(dirname(__FILE__) . '/inc/functions.php');
 @include_once(dirname(__FILE__) . '/vendor/autoload.php');
 
-$aMethod   = isset($_REQUEST['method']) ? $_REQUEST['method'] : '';
+$aMethod   = isset($_REQUEST['method']) ? $_REQUEST['method'] : 'send';
 $aToken    = isset($_REQUEST['token'])  ? $_REQUEST['token']  : '';
 $aReturn   = array('success' => true, 'method' => $aMethod, 'timestamp' => time(), 'version' => PIGEON_VERSION);
 
