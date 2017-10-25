@@ -2,7 +2,7 @@
 
 # Pigeon
 
-Pigeon is an easy and hassle-free PHP microservice for sending e-mails via HTTP requests. It values simplicity over a rich feature set and is intended for small, in-house projects that require e-mail sending.
+Pigeon is an easy to use and hassle-free PHP microservice for sending e-mails via HTTP requests. It values simplicity over a rich feature set and is intended for small, in-house projects that require e-mail sending.
 
 ## Getting started
 
