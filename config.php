@@ -2,6 +2,9 @@
 
 define('DEBUG', false);
 
+define('USE_CUSTOM_SMTP', true);
+define('USE_MAIL_FUNCTION', false);
+
 define('AUTH_USER', '');
 define('AUTH_PASSWORD', '');
 
