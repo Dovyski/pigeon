@@ -1,6 +1,10 @@
 <?php
 
 function sendUsingSMTP($theTo, $theSubject, $theText) {
+	if(!class_exists('PHPMailer\PHPMailer\PHPMailer')) {
+	    throw new \Exception('SMTP is not ready (PHPMailer not installed). Run "composer install" in the root folder.');
+	}
+
 	$aMailer = new PHPMailer\PHPMailer\PHPMailer();
 	$aMailer->isSMTP();
 

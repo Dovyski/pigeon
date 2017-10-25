@@ -11,10 +11,6 @@ $aToken    = isset($_REQUEST['token'])  ? $_REQUEST['token']  : '';
 $aReturn   = array('success' => true, 'method' => $aMethod, 'timestamp' => time());
 
 try {
-	if(!class_exists('PHPMailer\PHPMailer\PHPMailer')) {
-	    throw new \Exception('Delivery infra-structure is not ready (PHPMailer not installed). Run "composer install" in the root folder.');
-	}
-
 	if(!isUsingValidCredentials($aToken)) {
 		throw new \Exception('Invalid auth token.');
 	}
